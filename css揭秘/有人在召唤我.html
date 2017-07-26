@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style lang="">
+    .checkbox,
+.checkbox-option{
+  position: relative;
+  border: none;
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+/*.checkbox-option{*/
+    /*position: absolute;*/
+    /*clip: rect(0, 0, 0, 0);*/
+/*}*/
+/*.checkbox-option + label::before{*/
+    /*content: "";*/
+    /*display: inline-block;*/
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*background: url("images/checkbox.png");*/
+/*}*/
+.checkbox input[type="checkbox"]{
+  /*margin: 10px 0px;*/
+  /*position: absolute;*/
+    /*clip: rect(0, 0, 0, 0);*/
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
+}
+.checkbox input[type="checkbox"] + label::before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    margin: 2px 5px 0 0;
+    width: 16px;
+    height: 16px;
+    background: url("images/checkbox.png");
+}
+.checkbox input[type="checkbox"]:checked + label::before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    margin: 2px 5px 0 0;
+    width: 16px;
+    height: 16px;
+    background: url("images/checkbox-checked.png");
+}
+.checkbox label,
+.checkbox-label{
+  /*margin:10px 0;*/
+  padding: 0 10px 0 5px;
+  width: auto;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.checkbox-label{
+  width: 100px;
+  text-align: left;
+  padding: 0;
+}
+  </style>
+</head>
+<body>
+  <script>
+    const  where = () => {
+      var scriptPath = '';
+      try {
+        //Throw an error to generate a stack trace
+        throw new Error();
+      }
+      catch(e) {
+        //Split the stack trace into each line
+        // console.log(e.replace(/\({1}.*\){1}/g), "")
+        console.log(e.toString())
+        var stackLines = e.stack.split('\n');
+             const newArr = stackLines.map((item) => {
+               return item.replace(/\({1}.*\){1}/g, "").trim()
+             })  
+             newArr.shift()
+             newArr.shift()
+             newArr.pop()
+             console.log(newArr)
+             const final = newArr.map((item) => {
+               return item.replace("at", "").trim()
+             })
+      }
+    }
+    
+    function main() {
+      where()
+    }
+
+    function a () {
+      function b () {
+        where() // => 'b'
+      }
+      b()
+    }
+
+    main()
+    a()
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0
+    }
+    .info{
+      width: 100px;
+      height: 100px;
+      background: url('./info.png') no-repeat bottom right #58a;
+      background-position: right 20px bottom 10px;
+    }
+    .infoes{
+      padding: 50px;
+      width: 100px;
+      height: 100px;
+      background: url('./info.png') no-repeat bottom right #58a;
+      background-origin: content-box;
+    }
+    .infoCalc{
+      width: 100px;
+      height: 100px;
+      background: url('./info.png') no-repeat #58a;
+      background-position: : -webkit-calc(100% - 20px) -webkit-calc(100% - 20px);
+    }
+  </style>
+</head>
+<body>
+  <div class="info"></div>
+  <div class="infoes"></div>
+  <div class="infoCalc"></div>
+</body>
+</html>
